@@ -1,0 +1,7 @@
+.list-shoes{
+    margin-left: 30px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 20px;
+    text-decoration: none;
+}
