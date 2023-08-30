@@ -1,31 +1,31 @@
 import React from "react";
-import Cart from "../pages/carrinho";
-import { Button } from "antd";
 import "./header.css"
 import {FaShoppingCart} from "react-icons/fa"
 import { connect } from "react-redux";
+import {Link} from 'react-router-dom'
 
-function Header({cartSize}) {
-    console.log(cartSize.length)
+
+function Header({cart}) {
+    console.log("cartSize:", cart);
     return(
         <header>
-            <a href="/">
+            <Link to='/'>
                 <p className="pag-title">
                     REACTSHOES
                 </p>
-            </a>
+            </Link>
             <div className="carrinho">            
                 <span style={{paddingRight: '40px',position: 'relative', bottom: '8px'}}>
-                    {cartSize?.length} Meu Carrinho
+                    {cart} Meu Carrinho
                 </span>
-                <a href="/cart">
+                <Link to='/cart'>
                     <FaShoppingCart style={{cursor:"pointer"}} className="cart-icon"/>
-                </a>
+                </Link>             
             </div>            
         </header>
     )
 }
 
 export default connect(state => ({
-    cartSize: state.Cart,
+    cart: state.Cart.length,
 }))(Header);
