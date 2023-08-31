@@ -5,5 +5,5 @@ const enhancer = process.env.NODE_ENV === "development"
 : null
 
 
-const store = createStore(enhancer,combineRedux);
+const store = createStore(combineRedux,enhancer);
 export default store

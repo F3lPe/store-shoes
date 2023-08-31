@@ -1,5 +1,5 @@
-import Reactotron from 'reactotron-react-js'
-import { reactotronRedux} from 'reactotron-redux'
+import Reactotron from 'reactotron-react-js';
+import { reactotronRedux} from 'reactotron-redux';
 
 //verificando se o usuário está em ambiente de dev
 if(process.env.NODE_ENV === 'development'){

@@ -1,10 +1,9 @@
 export default function Cart(state = [] , action){
-    console.log("state array:" ,state)
     switch (action.type) {
-        case "add-to-cart":
+        case 'add-to-cart':
         return [...state, action.product]
 
         default: 
-            return [];
+            return state;
     }
 }

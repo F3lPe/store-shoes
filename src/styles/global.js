@@ -7,7 +7,7 @@ body{
     background: #282c34;
 }
 
-div, p, a{
+div, a{
     color: #eee;
     text-decoration: none;
     list-style: none;
