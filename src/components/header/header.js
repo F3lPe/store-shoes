@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./header.css";
 import {FaShoppingCart} from "react-icons/fa";
 import { connect } from "react-redux";
@@ -6,6 +6,13 @@ import {Link} from 'react-router-dom';
 
 
 function Header({cart}) {
+    const [qtdProduct, setQtdProduct] = useState('');
+
+    useEffect(() => {
+            const mapQtd = cart.map(e => e.quantidade)
+            const qtdReduce = mapQtd.reduce((acu, valor) => acu + valor,0)
+            setQtdProduct(qtdReduce)
+    },[cart])
 
     return(
         <header>
@@ -16,7 +23,7 @@ function Header({cart}) {
             </Link>
             <div className="carrinho">            
                 <span style={{paddingRight: '40px',position: 'relative', bottom: '8px'}}>
-                    {cart.length} Meu Carrinho
+                {qtdProduct} Carrinho
                 </span>
                 <Link to='/cart'>
                     <FaShoppingCart style={{cursor:"pointer"}} className="cart-icon"/>
