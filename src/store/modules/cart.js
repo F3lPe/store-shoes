@@ -3,7 +3,7 @@ import {produce} from 'immer'
 export default function Cart(state = [] , action){
     switch (action.type) {
         case 'add-to-cart':
-       return produce(state, draft => {
+        return produce(state, draft => {
             const findIndicie = draft.findIndex(e => e.id === action.product.id);
             const valorTotal = draft.filter(e => e.id === action.product.id)
             console.log(valorTotal)
@@ -18,7 +18,8 @@ export default function Cart(state = [] , action){
        })
        case 'remove-product':
         return produce(state, draft => {
-            const productIndex = draft.findIndex(e => e.id === action.product.id)
+            const productIndex = draft.findIndex(e => e.idProduct === action.id)
+            console.log(productIndex)
             if(productIndex >= 0){
                 draft.splice(productIndex, 1)
             }

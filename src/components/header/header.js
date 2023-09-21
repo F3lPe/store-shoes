@@ -8,11 +8,11 @@ import {Link} from 'react-router-dom';
 function Header({cart}) {
     const [qtdProduct, setQtdProduct] = useState('');
 
-    useEffect(() => {
+   /*  useEffect(() => {
             const mapQtd = cart.map(e => e.quantidade)
             const qtdReduce = mapQtd.reduce((acu, valor) => acu + valor,0)
             setQtdProduct(qtdReduce)
-    },[cart])
+    },[cart]) */
 
     return(
         <header>
@@ -23,7 +23,7 @@ function Header({cart}) {
             </Link>
             <div className="carrinho">            
                 <span style={{paddingRight: '40px',position: 'relative', bottom: '8px'}}>
-                {qtdProduct} Carrinho
+                {cart.length} Carrinho
                 </span>
                 <Link to='/cart'>
                     <FaShoppingCart style={{cursor:"pointer"}} className="cart-icon"/>
