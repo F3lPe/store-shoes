@@ -5,12 +5,10 @@ export default function Cart(state = [] , action){
         case 'add-to-cart':
         return produce(state, draft => {
             const findIndicie = draft.findIndex(e => e.id === action.product.id);
-            const valorTotal = draft.filter(e => e.id === action.product.id)
-            console.log(valorTotal)
             if(findIndicie >= 0){
                 draft[findIndicie].quantidade++
             } else{
-                draft.push({
+                draft.push({    
                     ...action.product,
                     quantidade: 1
                 })
@@ -18,12 +16,24 @@ export default function Cart(state = [] , action){
        })
        case 'remove-product':
         return produce(state, draft => {
-            const productIndex = draft.findIndex(e => e.idProduct === action.id)
-            console.log(productIndex)
+            const productIndex = draft.findIndex(e => e.id === action.id)
+            console.log("product: ",productIndex)
+           
             if(productIndex >= 0){
                 draft.splice(productIndex, 1)
             }
         })
+        case 'update-amount': {
+            if(action.amount <= 0){
+                return state;
+            }
+            return produce(state, draft => {    
+
+                    const productIndex = draft.findIndex(e => e.id === action.id)
+                    if(productIndex >= 0){
+                        draft[productIndex].quantidade = action.amount
+                    }     
+            })}
         default: 
             return state;
     }

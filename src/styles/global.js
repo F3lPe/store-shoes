@@ -2,9 +2,8 @@ import { createGlobalStyle} from "styled-components";
 
 export default createGlobalStyle`
 
-
 body{
-    background: #282c34;
+  background: #282c34;
 }
 
 div, a{
@@ -36,4 +35,13 @@ width: 100px;
 .ant-button:hover {
     color: #eee !important;
 }
+
+.icons-ai{
+    cursor: pointer;        
+}
+.icons-ai:hover{
+        color: #4096ff;
+        border-color: #4096ff;    
+        transition: 0.5s;
+    }
 `;
