@@ -17,7 +17,6 @@ export default function Cart(state = [] , action){
        case 'remove-product':
         return produce(state, draft => {
             const productIndex = draft.findIndex(e => e.id === action.id)
-            console.log("product: ",productIndex)
            
             if(productIndex >= 0){
                 draft.splice(productIndex, 1)

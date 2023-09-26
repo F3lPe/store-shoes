@@ -6,7 +6,7 @@ body{
   background: #282c34;
 }
 
-div, a{
+div,a{
     color: #eee;
     text-decoration: none;
     list-style: none;
@@ -22,9 +22,8 @@ header{
     text-decoration: none !important;
 }
 
-li{
-    height: 300px;
-    display: grid;
+ul{
+    list-style: none;
 }
 
 .ant-button{
@@ -42,6 +41,6 @@ width: 100px;
 .icons-ai:hover{
         color: #4096ff;
         border-color: #4096ff;    
-        transition: 0.5s;
+        transition: 0.2s;
     }
 `;

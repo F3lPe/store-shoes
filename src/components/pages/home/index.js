@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./index.css";
 import sapato2 from "../../../images/sapato2.jpg";
 import sapato3 from "../../../images/sapato3.jpg";
@@ -6,25 +6,32 @@ import { Button } from 'antd';
 import { connect, useDispatch } from 'react-redux';
 import handleAlert from '../../../alert';
 
-function Home() {
+function Home({props}) {
     const dispatch = useDispatch();
+    const [id, setId] = useState('')
+    const findObj = props.findIndex(e => e.id === id)
+    console.log(findObj)
+    console.log(props)
 
   const handleAddProduct = (product, id) => {
 
         switch (id){           
-            case 1:                
+            case 1:       
+                setId(id);
                 dispatch({
                     type: 'add-to-cart',
                     product: product,
                 })
             break;
             case 2:
+                setId(id);
                 dispatch({
                     type: 'add-to-cart',
                     product: product,
                 })
             break;
             case 3: 
+                setId(id);
                 dispatch({
                     type: 'add-to-cart',
                     product: product,
@@ -59,4 +66,4 @@ function Home() {
     )
 }
 
-export default connect()(Home)
+export default connect(state => ({props: state.Cart}))(Home)
